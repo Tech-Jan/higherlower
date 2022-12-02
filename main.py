@@ -14,7 +14,7 @@ chosen_data = random.randint(0, len(data) - 1)
 start_data = data[chosen_data]
 name = start_data["name"]
 
-
+print ("test")
 def compare(start, chosen):
     '''is the first one higher than the second one?  yes =return True no =return False'''
     if start["follower_count"] >= chosen["follower_count"]:
