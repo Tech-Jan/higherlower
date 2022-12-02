@@ -1,3 +1,5 @@
+'''this is my higher lower game'''
+
 from game_data import data
 from art import logo
 from art import vs
@@ -5,6 +7,7 @@ import random
 import os
 
 def clear_screen():
+    '''this should clear the screen but doesnt work'''
     os.system('cls' if os.name == 'nt' else 'clear')
 
 chosen_data = random.randint(0, len(data) - 1)
@@ -12,8 +15,8 @@ start_data = data[chosen_data]
 name = start_data["name"]
 
 
-
 def compare(start, chosen):
+    '''is the first one higher than the second one?  yes =return True no =return False'''
     if start["follower_count"] >= chosen["follower_count"]:
         print(start["follower_count"])
         print(chosen["follower_count"])
