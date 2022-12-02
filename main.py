@@ -14,7 +14,6 @@ chosen_data = random.randint(0, len(data) - 1)
 start_data = data[chosen_data]
 name = start_data["name"]
 
-print ("test")
 def compare(start, chosen):
     '''is the first one higher than the second one?  yes =return True no =return False'''
     if start["follower_count"] >= chosen["follower_count"]:
@@ -25,14 +24,12 @@ def compare(start, chosen):
         print("--")
         return False
 
-
 def game_run():
     score = 0
     runner = True
     chosen_data = random.randint(0, len(data) - 1)
     start_data = data[chosen_data]
     while runner == True:
-        #print(logo)
         print(f'compare {start_data["name"]} ,a {start_data["description"]} ,from {start_data["country"]}')
         print(f"({vs}+\n")
         chosen_data = data[random.randint(0, len(data) - 1)]
@@ -53,9 +50,6 @@ def game_run():
                 print(f"you lose {start_data} loses against \n {chosen_data} ")
                 runner = False
         start_data = chosen_data
-
-
     print(f"uffff nice effort. your final score is {score}")
-
 
 game_run()
