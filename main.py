@@ -65,4 +65,5 @@ def game_run():
         print("\n################\n")
     print(f"uffff nice effort. your final score is {score}")
 
+
 game_run()
