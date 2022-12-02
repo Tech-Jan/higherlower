@@ -55,6 +55,7 @@ def game_run():
         start_data = chosen_data
 
 
+
     print(f"uffff nice effort. your final score is {score}")
 
 
