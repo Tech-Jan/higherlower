@@ -16,9 +16,9 @@ name = start_data["name"]
 
 def compare(start, chosen):
     '''is the first one higher than the second one?  yes =return True no =return False'''
+    print(f'{start["name"]} has {start["follower_count"]} likes')
+    print(f'{chosen["name"]} has {chosen["follower_count"]} likes')
     if start["follower_count"] >= chosen["follower_count"]:
-        print(start["follower_count"])
-        print(chosen["follower_count"])
         return True
     else:
         print("--")
@@ -33,23 +33,24 @@ def game_run():
         print(f'compare {start_data["name"]} ,a {start_data["description"]} ,from {start_data["country"]}')
         print(f"({vs}+\n")
         chosen_data = data[random.randint(0, len(data) - 1)]
-        print(f'compare {chosen_data["name"]} ,a {chosen_data["description"]} ,from {chosen_data["country"]}')
-        my_input = input("has the second one higher [h] ore lower [l] likes?")
+        print(f'compare {chosen_data["name"]} ,a {chosen_data["description"]} ,from {chosen_data["country"]} \n')
+        my_input = input(f'has {chosen_data["name"]} one higher [h] ore lower [l] instalikes?')
         if my_input == "l":
             if compare(start_data, chosen_data):
-                print(f"nice one {start_data} won against \n {chosen_data} ")
+                print(f'nice one {start_data["name"]} won against {chosen_data["name"]} ')
                 score += 1
             else:
-                print(f"you lose {start_data} won against \n {chosen_data} ")
+                print(f'you lose {start_data["name"]} won against {chosen_data["name"]} ')
                 runner = False
         if my_input == "h":
             if not compare(start_data, chosen_data):
-                print(f"you win because {start_data} loses against \n {chosen_data} ")
+                print(f'you win because {start_data["name"]} loses against {chosen_data["name"]} ')
                 score += 1
             else:
-                print(f"you lose {start_data} loses against \n {chosen_data} ")
+                print(f'you lose {start_data["name"]} loses against {chosen_data["name"]}')
                 runner = False
         start_data = chosen_data
+        print("\n################\n")
     print(f"uffff nice effort. your final score is {score}")
 
 game_run()
