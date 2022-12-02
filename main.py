@@ -24,6 +24,20 @@ def compare(start, chosen):
         print("--")
         return False
 
+def check_answer(input, start_data, chosen_data):
+    if input == "l":
+        if compare(start_data, chosen_data):
+            return True
+        else:
+            return False
+    if input == "h":
+        if not compare(start_data, chosen_data):
+            return True
+        else:
+            return False
+
+
+
 def game_run():
     score = 0
     runner = True
@@ -35,20 +49,15 @@ def game_run():
         chosen_data = data[random.randint(0, len(data) - 1)]
         print(f'compare {chosen_data["name"]} ,a {chosen_data["description"]} ,from {chosen_data["country"]} \n')
         my_input = input(f'has {chosen_data["name"]} one higher [h] ore lower [l] instalikes?')
-        if my_input == "l":
-            if compare(start_data, chosen_data):
-                print(f'nice one {start_data["name"]} won against {chosen_data["name"]} ')
-                score += 1
-            else:
-                print(f'you lose {start_data["name"]} won against {chosen_data["name"]} ')
-                runner = False
-        if my_input == "h":
-            if not compare(start_data, chosen_data):
-                print(f'you win because {start_data["name"]} loses against {chosen_data["name"]} ')
-                score += 1
-            else:
-                print(f'you lose {start_data["name"]} loses against {chosen_data["name"]}')
-                runner = False
+
+        ##variant 2 with an function
+        if check_answer(my_input,start_data,chosen_data):
+            print(f'nice one {start_data["name"]} won against {chosen_data["name"]} ')
+            score += 1
+        elif not check_answer(my_input, start_data, chosen_data):
+            print(f'you lose {start_data["name"]} loses against {chosen_data["name"]}')
+            runner = False
+
         start_data = chosen_data
         print("\n################\n")
     print(f"uffff nice effort. your final score is {score}")
