@@ -42,6 +42,7 @@ def check_answer(input, start_data, chosen_data):
 
 
 def game_run():
+    print(logo)
     score = 0
     runner = True
     chosen_data = random.randint(0, len(data) - 1)
